@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="navbar-nav">
+    <a id="txtclr" class="navbar-brand" href="#">
+      
+      <span class="glyphicon glyphicon-education"></span> BreakingCode</a>
+      <div class="vl"></div>
+      &nbsp; &nbsp; &nbsp;
+     
+     
+  </div>
+</nav>
+
+
+<div *ngIf="div2" id="report">
+  <img src="/assets/images/code3.jpg">
+  <h1 style="color: rgb(219, 219, 219); text-align: center;">Your Score in {{top}} is {{score}}</h1><br/><br/>
+  <div *ngIf="pass"><p style="color: rgb(219, 219, 219); text-align: center;font-size: larger;">Congtatulations!!!<br/> You have Cleared Prilimnary Round</p></div>
+  <div *ngIf="!pass">><p style="color: rgb(219, 219, 219); text-align: center;font-size: larger;">Sorry!!! <br/> You have Not Cleared The Primnary Roound</p></div>
+  <h2 style="color: rgb(219, 219, 219); text-align: center;">Shortlist to be Announced soon...</h2>
+  <button class="btn btn-danger" routerLink="/userhome">Return to Den</button>
+</div>
+
+<div class="quiz">
+<div class="form-group" id="selectexam" *ngIf="div1">
+  <h2 style="color: rgb(219, 219, 219); text-align: center;">Select the topic and start your exam</h2><br>
+  <p style="color: rgb(219, 219, 219); text-align: center; font-size:larger;">ALL THE BEST ! </p><br/>
+    <label for="topic">Topic</label>
+    <select type="text" name="topic" size="1" class="form-control" [(ngModel)]="top" #topic="ngModel" required>
+      <option value="" selected="selected">Select Topic</option>
+      <option *ngFor="let topic of topics" value="{{ topic }}">{{ topic }}</option>
+    </select>
+    <div class="text-center">
+      <button type="button" class="btn btn-success btn-lg" (click)="fetchQuestion()">Start Quiz</button>
+    </div>
+</div>
+
+  <br/>
+  <br/><br/><br/><br/><br/>
+   
+  
+  <div class="quiz" *ngIf="div3"><h2 style="color: rgb(219, 219, 219); text-align: center;">{{top}} Quiz</h2>
+          <div class="jumbotron">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width.%]="(i/quizlength)*100"></div>
+            </div>
+              <!-- <span >{{ quizlist[i].qid }}</span> -->
+              <span  style=" font-size:larger;" >Question:</span>
+              <p style=" font-size:larger;" >{{ quizlist[i].question }}</p>
+              
+              <div class="card-action" id= "p">
+                <div>
+                  <ul class="list-group"  style=" font-size:larger;">
+                        <li class="list-group-item"  *ngFor="let o of opt">
+                          <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{o}}"  (change)="onItemChange(o)"/> 
+                          {{o}}
+                          
+                        </li>
+                  </ul>
+                </div>
+                
+                <button *ngIf= "div_next" class="btn btn-success btn-lg" (click)="onClickNext()" id="nextbutton">Next</button>
+          <button *ngIf= "div_submit" class="btn btn-success btn-lg" (click)="onSubmit()">Submit</button><br/><br/><br/><br/><br/><br/>
+             </div>
+          </div>
+        </div>
+        </div>
+<br/><br/><br/><br/><br/><br/>
+
+        <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" style="background-color:black; "><p style="color: rgb(219, 219, 219); text-align: center;font-size:larger;">© 2020 Copyright: Breaking Code</p>
+    <a href="https://mdbootstrap.com/"> Breaking Code</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

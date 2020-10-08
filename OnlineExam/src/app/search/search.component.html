@@ -1,0 +1,36 @@
+<table class="table table-secondary table-striped">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Qualification</th>
+            <th>Mobile No.</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of student; ">
+            <td>{{ i.userId }}</td>
+            <td>{{ i.fname }}</td>
+            <td>{{ i.lname }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.dob }}</td>
+            <td>{{ i.state }}</td>
+            <td>{{ i.city }}</td>
+            <td>{{ i.qualification }}</td>
+            <td>{{ i.mobile }}</td>         
+        </tr>
+    </tbody>
+</table>
+
+
+   
+
+
+    
+
+

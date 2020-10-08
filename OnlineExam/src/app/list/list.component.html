@@ -1,0 +1,31 @@
+<table class="table table-secondary table-striped">
+    <thead>
+        <tr>
+            <th>qid</th>
+            <th>Topic</th>
+            <th>Question</th>
+            <th>OptionA</th>
+            <th>OptionB</th>
+            <th>OptionC</th>
+            <th>OptionD</th>
+            <th>Correct Answer</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let quiz of list; let i=index">
+            <td>{{ quiz.qid }}</td>
+            <td>{{ quiz.topic }}</td>
+            <td>{{ quiz.question }}</td>
+            <td>{{ quiz.optionA }}</td>
+            <td>{{ quiz.optionB }}</td>
+            <td>{{ quiz.optionC }}</td>
+            <td>{{ quiz.optionD }}</td>
+            <td>{{ quiz.correctAns }}</td>
+            <td><button type="button" class="btn btn-danger" type="submit" (click)="deleteQuizquestion(quiz.qid)">Delete</button></td>
+                <!-- <button type="button" class="btn btn-success" type="submit" (click)="goToEditQuestion(quiz.qid)">Edit</button> -->
+        </tr>
+    </tbody>
+</table>
+<div class="text-center">
+<button type="button" class="btn btn-success" type="submit" (click)="goToSetQuestion()">Add Questions</button>
+</div>
